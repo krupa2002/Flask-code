@@ -2,11 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mood Visualization</title>
+    <title>Mood Visualization with Journal Entries</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        #graph {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mood Visualization</h1>
+    <h1>Mood Visualization with Journal Entries</h1>
     <div id="graph"></div>
 
     <script>
@@ -14,5 +47,12 @@
         var figure = {{ graphJSON|safe }};
         Plotly.newPlot(graph, figure.data, figure.layout);
     </script>
+
+    <h2>Journal Entries:</h2>
+    <ul>
+        {% for entry in journal_entries %}
+        <li>{{ entry[0] }} - Mood: {{ entry[1] }} - Entry: {{ entry[2] }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

@@ -23,18 +23,18 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px auto;
-            max-width: 800px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        li {
+        th, td {
             padding: 10px;
             border-bottom: 1px solid #ccc;
+            text-align: left;
         }
     </style>
 </head>
@@ -49,10 +49,21 @@
     </script>
 
     <h2>Journal Entries:</h2>
-    <ul>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Mood</th>
+            <th>Entry</th>
+        </tr>
         {% for entry in journal_entries %}
-        <li>{{ entry[0] }} - Mood: {{ entry[1] }} - Entry: {{ entry[2] }}</li>
+        <tr>
+            <td>{{ entry[0].strftime("%Y-%m-%d") }}</td>
+            <td>{{ entry[0].strftime("%H:%M:%S") }}</td>
+            <td>{{ entry[1] }}</td>
+            <td>{{ entry[2] }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </body>
 </html>

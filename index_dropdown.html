@@ -8,13 +8,15 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-image: url('your-mental-health-gif-url.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -47,10 +49,11 @@
         button:hover {
             background-color: #0056b3;
         }
-        a {
-            display: block;
+        .footer {
             text-align: center;
             margin-top: 20px;
+        }
+        .footer a {
             color: #007bff;
             text-decoration: none;
         }
@@ -75,7 +78,9 @@
             <br><br>
             <button type="submit">Record</button>
         </form>
-        <a href="/visualization">Visualize Your Mood Over Time</a>
+        <div class="footer">
+            <a href="/visualization">Visualize Your Mood Over Time</a>
+        </div>
     </div>
 </body>
 </html>

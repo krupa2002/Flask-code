@@ -5,12 +5,17 @@ import datetime
 app = Flask(__name__)
 
 moods_data = {'Happy': [], 'Sad': [], 'Excited': [], 'Calm': [], 'Angry': [], 'Stressed': []}
+journal_entries = []
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         mood = request.form['mood']
         moods_data[mood].append(datetime.datetime.now())
+        
+        journal_entry = request.form.get('journal_entry')
+        if journal_entry:
+            journal_entries.append((datetime.datetime.now(), mood, journal_entry))
     
     return render_template('index_dropdown.html')
 
@@ -48,7 +53,7 @@ def visualization():
 
     graphJSON = fig.to_json()
 
-    return render_template('visualization_dropdown.html', graphJSON=graphJSON)
+    return render_template('visualization_dropdown.html', graphJSON=graphJSON, journal_entries=journal_entries)
 
 if __name__ == '__main__':
     app.run(debug=True)

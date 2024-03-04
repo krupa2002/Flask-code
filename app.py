@@ -55,5 +55,9 @@ def visualization():
 
     return render_template('visualization_dropdown.html', graphJSON=graphJSON, journal_entries=journal_entries)
 
+@app.route('/journal')
+def journal():
+    return render_template('journal.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Mood</title>
+</head>
+<body>
+    <h1>Record Your Mood</h1>
+    <form action="/" method="POST">
+        <label for="mood">How are you feeling?</label>
+        <select id="mood" name="mood" required>
+            <option value="Happy">Happy</option>
+            <option value="Sad">Sad</option>
+            <option value="Excited">Excited</option>
+            <option value="Calm">Calm</option>
+            <option value="Angry">Angry</option>
+            <option value="Stressed">Stressed</option>
+        </select>
+        <button type="submit">Record</button>
+    </form>
+    <a href="/visualization">Visualize Your Mood Over Time</a>
+</body>
+</html>
